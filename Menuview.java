@@ -1,5 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.image.ImageFilter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -10,7 +12,6 @@ import javax.swing.JMenuItem;
 
 public class Menuview extends JFrame{
     private JLabel jLabel;
-
     public Menuview (){
         this.setTitle("Demonstration of sorting algorithms on array");
         this.setSize(1000, 500);
@@ -19,11 +20,15 @@ public class Menuview extends JFrame{
 
         Controller controll = new Controller(this); 
         JMenuBar jMenuBar = new JMenuBar();
+//start_set_icon
+    ImageIcon webIcon = new ImageIcon("my_wife.jpg");
+    ImageIcon wIcon = new ImageIcon("tick.png");
+//end_set_icon
 
 //start_help
         JMenu jMenu_help = new JMenu("Help");
-        JMenuItem jMenuItemHelp_usage = new JMenuItem("usage");
-        JMenuItem jMenuItemHelp_aim = new JMenuItem("aim");
+        JMenuItem jMenuItemHelp_usage = new JMenuItem("usage", wIcon);
+        JMenuItem jMenuItemHelp_aim = new JMenuItem("aim", wIcon);
         jMenu_help.add(jMenuItemHelp_usage);
         jMenuItemHelp_usage.addActionListener(controll);
         jMenu_help.addSeparator();
@@ -36,13 +41,11 @@ public class Menuview extends JFrame{
     jMenu_quit.add(jMenuItemQuit_quit);
     jMenuItemQuit_quit.addActionListener(controll);
 //end_quit
-//start_set_icon
-    ImageIcon webIcon = new ImageIcon("my_wife.jpg");
-//end_set_icon
 
 //start_set_lable
         Font font = new Font("Arial", Font.BOLD, 50);
         jLabel = new JLabel();
+        jLabel.setFont(font);
 //end_set_lable
 
         jMenuBar.add(jMenu_help);
@@ -51,7 +54,7 @@ public class Menuview extends JFrame{
         this.setIconImage(webIcon.getImage());
         this.setJMenuBar(jMenuBar);
         this.setLayout(new BorderLayout());
-        this.add(jLabel, BorderLayout.CENTER);
+        this.add(jLabel, BorderLayout.NORTH);
         this.setVisible(true);
     }
 
