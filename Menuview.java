@@ -1,7 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
@@ -14,13 +13,11 @@ import javax.swing.JPanel;
 
 public class Menuview extends JFrame{
     private JLabel jLabel;
-    JFrame frame = new JFrame("Menu Example");
     public Menuview (){
         this.setTitle("Demonstration of sorting algorithms on array");
         this.setSize(1000, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-
         Controller controll = new Controller(this); 
         JMenuBar jMenuBar = new JMenuBar();
 //start_set_icon
@@ -102,7 +99,6 @@ public class Menuview extends JFrame{
         this.setJMenuBar(jMenuBar);
         this.setVisible(true);
     }
-
     public void setJLable(String src){
         this.jLabel.setText(src);
     }
