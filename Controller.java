@@ -12,32 +12,45 @@ public class Controller implements ActionListener{
     }
     public void actionPerformed(ActionEvent e) {
         String choose = e.getActionCommand();
-        if(choose.equals("usage")){
-            try {
-                Runtime.getRuntime().exec(new String[] { "notepad.exe", "usage.txt" });
-            } catch (Exception a) {
-                a.printStackTrace();
-            }
-        }
-        else if(choose.equals("aim")){
-            try {
-                Runtime.getRuntime().exec(new String[] { "notepad.exe", "aims.txt" });
-            } catch (Exception a) {
-                a.printStackTrace();
-            }
-        }
-        else if(choose.equals("Quit")){
-            int response = JOptionPane.showConfirmDialog(
-                    this.menuview,
-                    "Are you sure you want to quit?",
-                    "Quit Confirmation",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE,
-                    new ImageIcon("warning.png")
-            );
-            if (response == JOptionPane.YES_OPTION) {
-                System.exit(0);
-            }
+        switch (choose) {
+            case "usage":
+                try {
+                    Runtime.getRuntime().exec(new String[] { "notepad.exe", "usage.txt" });
+                } catch (Exception a) {
+                    a.printStackTrace();
+                }
+                break;
+            case "aim":
+                try {
+                    Runtime.getRuntime().exec(new String[] { "notepad.exe", "aims.txt" });
+                } catch (Exception a) {
+                    a.printStackTrace();
+                }
+                break;
+            case "Quit":
+                int response = JOptionPane.showConfirmDialog(
+                        this.menuview,
+                        "Are you sure you want to quit?",
+                        "Quit Confirmation",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        new ImageIcon("warning.png")
+                );
+                if (response == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+                break;
+            case "Merge Sort":
+
+                break;
+            case "Selection Sort":
+
+                break;
+            case "Shell Sort":
+
+                break;
+            default:
+                break;
         }
     }
 }
