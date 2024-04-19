@@ -41,13 +41,13 @@ public class Controller implements ActionListener{
                 }
                 break;
             case "Merge Sort":
-
+                new Merge_Sort(menuview);
                 break;
             case "Selection Sort":
-
+                new Selection_Sort(menuview);
                 break;
             case "Shell Sort":
-
+                new Shell_Sort(menuview);
                 break;
             default:
                 break;
