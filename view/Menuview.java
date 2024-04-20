@@ -1,3 +1,4 @@
+package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -13,6 +14,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import test_HIHI.Animation;
+import controll.*;
+
 public class Menuview extends JFrame{
     private JLabel jLabel;
     private JLabel test;
@@ -26,10 +30,10 @@ public class Menuview extends JFrame{
         Controller controll = new Controller(this); 
         JMenuBar jMenuBar = new JMenuBar();
 //start_set_icon
-        ImageIcon webIcon = new ImageIcon("my_wife.jpg");
-        ImageIcon usageIcon = new ImageIcon("usage.png");
-        ImageIcon aimsIcon = new ImageIcon("aims.png");
-        ImageIcon quitIcon = new ImageIcon("quit.png");
+        ImageIcon webIcon = new ImageIcon("image/my_wife.jpg");
+        ImageIcon usageIcon = new ImageIcon("image/usage.png");
+        ImageIcon aimsIcon = new ImageIcon("image/aims.png");
+        ImageIcon quitIcon = new ImageIcon("image/quit.png");
 //end_set_icon
 
 //start_sort type
@@ -76,10 +80,12 @@ public class Menuview extends JFrame{
 
 //start_set_panel2
 JPanel jPanel_2 = new JPanel();
+Animation animation = new Animation();
+animation.setBackground(Color.GRAY);
 jPanel_2.setBackground(Color.GRAY);
 test = new JLabel();
-test.setFont(new Font("Arial", Font.PLAIN, 20));
-jPanel_2.add(test);
+test.setFont(new Font("Arial", Font.PLAIN, 15));
+//jPanel_2.add(animation);
 //end_set_panel2
 
 //start_set_panel3
@@ -102,7 +108,7 @@ jPanel_3.add(stopButton);
 
         this.setLayout(new BorderLayout());
         this.add(jPanel_1, BorderLayout.NORTH);
-        this.add(jPanel_2, BorderLayout.CENTER);
+        this.add(animation, BorderLayout.CENTER);
         this.add(jPanel_3, BorderLayout.SOUTH);
         this.setIconImage(webIcon.getImage());
         this.setJMenuBar(jMenuBar);
@@ -112,7 +118,7 @@ jPanel_3.add(stopButton);
         this.jLabel.setText(src);
         boxn.setColumns(4);
         boxn.setHorizontalAlignment(JTextField.LEFT);
-        boxn.setFont(new Font("Arial", Font.PLAIN, 20));
+        boxn.setFont(new Font("Arial", Font.PLAIN, 15));
     }
     public void setTEST(String src){
         this.test.setText(src);

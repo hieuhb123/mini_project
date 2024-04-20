@@ -1,8 +1,12 @@
+package controll;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
+import view.Menuview;
+import type_sort.*;
 
 public class Controller implements ActionListener{
     private Menuview menuview;
@@ -17,14 +21,14 @@ public class Controller implements ActionListener{
         switch (choose) {
             case "usage":
                 try {
-                    Runtime.getRuntime().exec(new String[] { "notepad.exe", "usage.txt" });
+                    Runtime.getRuntime().exec(new String[] { "notepad.exe", "help/usage.txt" });
                 } catch (Exception a) {
                     a.printStackTrace();
                 }
                 break;
             case "aim":
                 try {
-                    Runtime.getRuntime().exec(new String[] { "notepad.exe", "aims.txt" });
+                    Runtime.getRuntime().exec(new String[] { "notepad.exe", "help/aims.txt" });
                 } catch (Exception a) {
                     a.printStackTrace();
                 }

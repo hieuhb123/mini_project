@@ -1,3 +1,5 @@
+package type_sort;
+import view.Menuview;
 public class Merge_Sort {
     public Merge_Sort(Menuview menuview){
         menuview.setJLable("Merge");
