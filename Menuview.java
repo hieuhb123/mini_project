@@ -112,6 +112,7 @@ jPanel_3.add(stopButton);
         this.jLabel.setText(src);
         boxn.setColumns(4);
         boxn.setHorizontalAlignment(JTextField.LEFT);
+        boxn.setFont(new Font("Arial", Font.PLAIN, 20));
     }
     public void setTEST(String src){
         this.test.setText(src);
