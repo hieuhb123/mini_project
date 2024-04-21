@@ -14,7 +14,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import test_HIHI.Animation;
+import anima.Animation;
 import controll.*;
 
 public class Menuview extends JFrame{
