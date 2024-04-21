@@ -4,19 +4,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Animation extends JPanel implements ActionListener{
+public class Animation_shell extends JPanel implements ActionListener{
     private Timer timer;
     private int x = 0;
     private int y = 0;
     private int dx = 2;
     private int dy = 2;
-    public Animation() {
+    public Animation_shell(int n) {
         timer = new Timer(1, this);
         timer.start();
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
         // Draw your animation frames here
         g.setColor(Color.RED);

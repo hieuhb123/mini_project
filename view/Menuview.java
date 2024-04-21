@@ -1,6 +1,7 @@
 package view;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.FlowLayout;
 
@@ -14,13 +15,15 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import anima.Animation;
+import anima.*;
 import controll.*;
 
 public class Menuview extends JFrame{
     private JLabel jLabel;
     private JLabel test;
     public JTextField boxn;
+    private JPanel jPanel_2;
+    private JPanel jPanel_1;
     public Menuview (){
         this.setTitle("Demonstration of sorting algorithms on array");
         this.setSize(1000, 500);
@@ -70,7 +73,7 @@ public class Menuview extends JFrame{
 //end_quit
 
 //start_set_panel1
-        JPanel jPanel_1 = new JPanel();
+        jPanel_1 = new JPanel();
         boxn = new JTextField();
         jLabel = new JLabel();
         jLabel.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -79,13 +82,11 @@ public class Menuview extends JFrame{
 //end_set_panel1
 
 //start_set_panel2
-JPanel jPanel_2 = new JPanel();
-Animation animation = new Animation();
-animation.setBackground(Color.GRAY);
+jPanel_2 = new JPanel();
 jPanel_2.setBackground(Color.GRAY);
 test = new JLabel();
 test.setFont(new Font("Arial", Font.PLAIN, 15));
-//jPanel_2.add(animation);
+jPanel_2.add(test);
 //end_set_panel2
 
 //start_set_panel3
@@ -108,7 +109,7 @@ jPanel_3.add(stopButton);
 
         this.setLayout(new BorderLayout());
         this.add(jPanel_1, BorderLayout.NORTH);
-        this.add(animation, BorderLayout.CENTER);
+        this.add(jPanel_2, BorderLayout.CENTER);
         this.add(jPanel_3, BorderLayout.SOUTH);
         this.setIconImage(webIcon.getImage());
         this.setJMenuBar(jMenuBar);
@@ -122,5 +123,35 @@ jPanel_3.add(stopButton);
     }
     public void setTEST(String src){
         this.test.setText(src);
+    }
+    public void setJPanel2_selec(Animation_selec animation){
+        BorderLayout layout = (BorderLayout) this.getLayout();
+        Component comp = layout.getLayoutComponent(BorderLayout.CENTER);
+        if (comp != null){
+                this.getContentPane().remove(comp);
+                this.add(animation, BorderLayout.CENTER);
+                this.revalidate();
+                this.repaint();
+        }
+    }
+    public void setJPanel2_merge(Animation_merge animation){
+        BorderLayout layout = (BorderLayout) this.getLayout();
+        Component comp = layout.getLayoutComponent(BorderLayout.CENTER);
+        if (comp != null){
+                this.getContentPane().remove(comp);
+                this.add(animation, BorderLayout.CENTER);
+                this.revalidate();
+                this.repaint();
+        }
+    }
+    public void setJPanel2_shell(Animation_shell animation){
+        BorderLayout layout = (BorderLayout) this.getLayout();
+        Component comp = layout.getLayoutComponent(BorderLayout.CENTER);
+        if (comp != null){
+                this.getContentPane().remove(comp);
+                this.add(animation, BorderLayout.CENTER);
+                this.revalidate();
+                this.repaint();
+        }
     }
 }
