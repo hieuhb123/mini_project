@@ -1,6 +1,5 @@
 package view;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.FlowLayout;
@@ -83,7 +82,6 @@ public class Menuview extends JFrame{
 
 //start_set_panel2
 jPanel_2 = new JPanel();
-jPanel_2.setBackground(Color.GRAY);
 test = new JLabel();
 test.setFont(new Font("Arial", Font.PLAIN, 15));
 jPanel_2.add(test);

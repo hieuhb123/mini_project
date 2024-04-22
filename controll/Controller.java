@@ -67,19 +67,39 @@ public class Controller implements ActionListener{
                 }
                 else{
                     if(this.selection_Sort != null){
-                        new Selection_Sort(menuview, this.menuview.boxn.getText());
+                        this.selection_Sort = new Selection_Sort(menuview, this.menuview.boxn.getText());
                     }
                     if(this.merge_Sort != null){
-                        new Merge_Sort(menuview, this.menuview.boxn.getText());
+                        this.merge_Sort = new Merge_Sort(menuview, this.menuview.boxn.getText());
                     }
                     if(this.shell_Sort != null){
-                        new Shell_Sort(menuview, this.menuview.boxn.getText());
+                        this.shell_Sort = new Shell_Sort(menuview, this.menuview.boxn.getText());
                     }
                 }
             break;
             case "continue":
+                if(this.selection_Sort != null){
+                    this.selection_Sort.settime(1, this.selection_Sort.animation_selec);
+                    System.out.println("continue");
+                }
+                if(this.merge_Sort != null){
+                    new Merge_Sort(menuview, this.menuview.boxn.getText());
+                }
+                if(this.shell_Sort != null){
+                    new Shell_Sort(menuview, this.menuview.boxn.getText());
+                }
             break;
             case "stop":
+                if(this.selection_Sort != null){
+                    this.selection_Sort.settime(1000, this.selection_Sort.animation_selec);
+                    System.out.println("stop");
+                }
+                if(this.merge_Sort != null){
+                    new Merge_Sort(menuview, this.menuview.boxn.getText());
+                }
+                if(this.shell_Sort != null){
+                    new Shell_Sort(menuview, this.menuview.boxn.getText());
+                }
             break;
             default:
                 break;
