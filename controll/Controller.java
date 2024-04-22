@@ -79,7 +79,7 @@ public class Controller implements ActionListener{
             break;
             case "continue":
                 if(this.selection_Sort != null){
-                    this.selection_Sort.settime(1, this.selection_Sort.animation_selec);
+                    this.selection_Sort.settime(50, this.selection_Sort.animation_selec);
                     System.out.println("continue");
                 }
                 if(this.merge_Sort != null){

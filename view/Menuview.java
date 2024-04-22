@@ -75,7 +75,7 @@ public class Menuview extends JFrame{
         jPanel_1 = new JPanel();
         boxn = new JTextField();
         jLabel = new JLabel();
-        jLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        jLabel.setFont(new Font("Arial", Font.BOLD, 20));
         jPanel_1.add(jLabel);
         jPanel_1.add(boxn);
 //end_set_panel1

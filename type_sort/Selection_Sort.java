@@ -1,6 +1,8 @@
 package type_sort;
 import view.Menuview;
 import anima.Animation_selec;
+
+import java.awt.Color;
 import java.util.Random;
 public class Selection_Sort {
     public Animation_selec animation_selec;
@@ -19,6 +21,7 @@ public class Selection_Sort {
         }
         if(this.animation_selec == null)
             animation_selec = new Animation_selec(n, a);
+        animation_selec.setBackground(Color.MAGENTA);
         menuview.setJPanel2_selec(animation_selec);
         System.out.println("Selec");
     }
