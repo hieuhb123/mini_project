@@ -23,12 +23,13 @@ public class Animation_selec extends JPanel implements ActionListener{
     private Boolean xuong = true;
     private Boolean xuongmax = false;
     private int d = 2;
+    private int dswap = 4;
     public Animation_selec(int n, String src[]) {
         a = new String[n];
         this.n = n;
         for(int i = 0; i < n ; i++)
             this.a[i] = src[i];
-        this.timer = new Timer(10, this);
+        this.timer = new Timer(30, this);
         this.timer.start();
     }
     public void settimeanima(int n){
@@ -154,11 +155,11 @@ public class Animation_selec extends JPanel implements ActionListener{
         }
         else if(this.visible_swapping){
             if(!xuongmax){
-                y += d;
+                y += dswap;
                 if(y == 60) xuongmax = true;
             }
             else if(xs <= (mini - counter_shift)*60)
-                xs += d;
+                xs += dswap;
             else if( y >= 0) y -= d;
             else{
                 swap(counter_shift, mini);
