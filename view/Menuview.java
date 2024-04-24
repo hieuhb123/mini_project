@@ -122,16 +122,6 @@ jPanel_3.add(stopButton);
     public void setTEST(String src){
         this.test.setText(src);
     }
-    public void setJPanel2_selec(Animation_selec animation){
-        BorderLayout layout = (BorderLayout) this.getLayout();
-        Component comp = layout.getLayoutComponent(BorderLayout.CENTER);
-        if (comp != null){
-                this.getContentPane().remove(comp);
-                this.add(animation, BorderLayout.CENTER);
-                this.revalidate();
-                this.repaint();
-        }
-    }
     public void setJPanel2_merge(Animation_merge animation){
         BorderLayout layout = (BorderLayout) this.getLayout();
         Component comp = layout.getLayoutComponent(BorderLayout.CENTER);

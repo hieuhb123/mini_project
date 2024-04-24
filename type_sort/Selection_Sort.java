@@ -1,7 +1,8 @@
 package type_sort;
 import view.Menuview;
 import anima.Animation_selec;
-
+import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Color;
 import java.util.Random;
 public class Selection_Sort {
@@ -19,10 +20,19 @@ public class Selection_Sort {
             String in = Integer.toString(randInt);
             a[i] = in;
         }
-        if(this.animation_selec == null)
-            animation_selec = new Animation_selec(n, a);
-        animation_selec.setBackground(Color.MAGENTA);
-        menuview.setJPanel2_selec(animation_selec);
+        this.animation_selec = new Animation_selec(n, a);
+        this.animation_selec.setBackground(Color.MAGENTA);
+
+        BorderLayout layout = (BorderLayout) menuview.getLayout();
+        Component comp = layout.getLayoutComponent(BorderLayout.CENTER);
+        if (comp != null){
+            menuview.getContentPane().remove(comp);
+            menuview.revalidate();
+            menuview.repaint();
+        }
+        menuview.add(this.animation_selec, BorderLayout.CENTER);
+        menuview.revalidate();
+        menuview.repaint();
         System.out.println("Selec");
     }
     public void settime(int n, Animation_selec animation_selec){

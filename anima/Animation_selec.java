@@ -176,6 +176,7 @@ public class Animation_selec extends JPanel implements ActionListener{
                 this.x = -2;
                 this.y = 0;
                 this.xs = 0;
+                this.xuong = true;
                 this.xuongmax = false;
                 this.visible_selection = true;
                 this.visible_shift = false;

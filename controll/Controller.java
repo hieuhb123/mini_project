@@ -86,7 +86,8 @@ public class Controller implements ActionListener{
                     new Merge_Sort(menuview, this.menuview.boxn.getText());
                 }
                 if(this.shell_Sort != null){
-                    new Shell_Sort(menuview, this.menuview.boxn.getText());
+                    this.shell_Sort.settime(30, this.shell_Sort.animation_shell);
+                    System.out.println("continue");
                 }
             break;
             case "stop":
@@ -98,7 +99,8 @@ public class Controller implements ActionListener{
                     new Merge_Sort(menuview, this.menuview.boxn.getText());
                 }
                 if(this.shell_Sort != null){
-                    new Shell_Sort(menuview, this.menuview.boxn.getText());
+                    this.shell_Sort.settime(5000, this.shell_Sort.animation_shell);
+                    System.out.println("stop");
                 }
             break;
             default:
