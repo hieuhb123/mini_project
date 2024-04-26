@@ -14,9 +14,19 @@ public class Animation_shell extends JPanel implements ActionListener{
     private String temp;
 
     private Boolean xuong = true;
-    private Boolean len = false;
-    private Boolean swapBoolean = false;
-    private Boolean g__ = false;
+    private int xxuong = 0;
+    private int yxuong = 0;
+
+    private Boolean to = false;
+    private int dto = 0;
+
+    private Boolean swap = false;
+    private Boolean xuongswap = true;
+    private Boolean sangswap = false;
+    private Boolean lenswap = false;
+    private int xswap = 0;
+    private int yswap = 0;
+
     public Animation_shell(int n, String src[]) {
         a = new String[n];
         for(int ii = 0; ii < n ; ii++)
@@ -26,7 +36,7 @@ public class Animation_shell extends JPanel implements ActionListener{
         this.i = gap;
         this.temp = a[this.i];
         this.j = i;
-        this.timer = new Timer(100, this);
+        this.timer = new Timer(10, this);
         this.timer.start();
     }
 
@@ -38,7 +48,7 @@ public class Animation_shell extends JPanel implements ActionListener{
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         for(int ii = 0; ii < n ; ii++){
-            if(ii == this.i) continue;
+            if(ii == this.i || ii == this.j) continue;
             g.setColor(Color.WHITE);
             g.fillRect(getWidth()/2 - n*30 + ii*60, 35, 50, 50);
 
@@ -69,14 +79,72 @@ public class Animation_shell extends JPanel implements ActionListener{
 
             g.setColor(Color.BLACK);
             g.setFont(new Font("Arial", Font.BOLD, 15));
-            g.drawString(this.a[this.i], getWidth()/2 - n*30 + 17 + this.i*60, 237);
+            g.drawString(this.temp, getWidth()/2 - n*30 + 17 + this.i*60, 237);
+        }
+        else if(this.to){
+            g.setColor(Color.GRAY);
+            g.fillRect(getWidth()/2 - n*30 + j*60 - dto/2, 35 - dto/2, 50 + dto, 50 + dto);
+
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Arial", Font.BOLD, 15));
+            g.drawString(this.a[j], getWidth()/2 - n*30 + 17 + j*60, 67);
+
+            g.setColor(Color.GRAY);
+            g.fillRect(getWidth()/2 - n*30 + this.i*60 - dto/2, 205 - dto/2, 50 + dto, 50 + dto);
+
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Arial", Font.BOLD, 15));
+            g.drawString(this.temp, getWidth()/2 - n*30 + 17 + this.i*60, 237);
+        }
+        else if(this.swap){
+            g.setColor(Color.YELLOW);
+            g.fillRect(getWidth()/2 - n*30 + j*60 + xswap, 35 + yswap, 50, 50);
+
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Arial", Font.BOLD, 15));
+            g.drawString(this.a[j], getWidth()/2 - n*30 + 17 + j*60 + xswap, 67 + yswap);
         }
     }
 
     public void actionPerformed(ActionEvent e) {
-        if(this.j >= gap && Integer.parseInt(this.temp) < Integer.parseInt(this.a[j-gap])){
+        if(this.to){
+            this.dto += 1;
+            if(this.dto == 20){
+                this.dto = 0;
+                this.to = false;
+            }
+        }
+        else if(this.swap){
+            if(this.xuongswap){
+                this.yswap += 2;
+                if(this.yswap == 100){
+                    this.xuongswap = false;
+                    this.sangswap = true;
+                }
+            }
+            if(this.sangswap){
+                this.xswap += 2;
+                if(this.xswap == this.gap*60){
+                    this.sangswap = false;
+                    this.lenswap = true;
+                }
+            }
+            if(this.lenswap){
+                this.yswap -= 2;
+                if(this.yswap == 0){
+                    this.swap = false;
+                    this.lenswap = false;
+                    this.xuongswap = true;
+                    this.yswap = 0;
+                    this.xswap = 0;
+                }
+            }
+        }
+        else if(this.j >= gap && Integer.parseInt(this.temp) < Integer.parseInt(this.a[j-gap])){
             this.a[j] = a[j-gap];
             this.j -= gap;
+            this.swap = true;
+            this.to = true;
         }
         else if(this.j < gap || Integer.parseInt(this.temp) >= Integer.parseInt(this.a[j-gap])){
             this.a[j] = temp;
@@ -91,7 +159,7 @@ public class Animation_shell extends JPanel implements ActionListener{
                 this.j = i;
             }
         }
-        else this.j -= gap;
+        else {this.j -= gap; this.to = true;}
 
         if(this.gap == 0) this.timer.stop();
         repaint();
