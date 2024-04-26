@@ -74,7 +74,6 @@ public class Animation_shell extends JPanel implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e) {
-        System.out.println(this.j);
         if(this.j >= gap && Integer.parseInt(this.temp) < Integer.parseInt(this.a[j-gap])){
             this.a[j] = a[j-gap];
             this.j -= gap;
@@ -96,14 +95,5 @@ public class Animation_shell extends JPanel implements ActionListener{
 
         if(this.gap == 0) this.timer.stop();
         repaint();
-    }
-    
-    private void swap(int a1, int a2){
-        String temp = a[a1];
-        setstring(a1, a[a2]);
-        setstring(a2, temp);
-    }
-    private void setstring(int ii, String src){
-        this.a[ii] = src;
     }
 }
