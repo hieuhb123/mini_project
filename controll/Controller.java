@@ -86,7 +86,7 @@ public class Controller implements ActionListener{
                     new Merge_Sort(menuview, this.menuview.boxn.getText());
                 }
                 if(this.shell_Sort != null){
-                    this.shell_Sort.settime(30, this.shell_Sort.animation_shell);
+                    this.shell_Sort.settime(20, this.shell_Sort.animation_shell);
                     System.out.println("continue");
                 }
             break;
