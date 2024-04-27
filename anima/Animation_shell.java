@@ -67,18 +67,18 @@ public class Animation_shell extends JPanel implements ActionListener{
         g.setColor(Color.GRAY);
         g.fillRect(10, getHeight() - 60, 25, 25);
         g.setColor(Color.BLACK);
-        g.setFont(new Font("Arial", Font.BOLD, 12));
+        g.setFont(new Font("Arial", Font.BOLD, 17));
         g.drawString("comparison", 40, getHeight() - 60 + 17);
         g.setColor(Color.YELLOW);
         g.fillRect(10, getHeight() - 30, 25, 25);
         g.setColor(Color.BLACK);
-        g.setFont(new Font("Arial", Font.BOLD, 12));
+        g.setFont(new Font("Arial", Font.BOLD, 17));
         g.drawString("item to insert", 40, getHeight() - 30 + 17);
         //2 o duoi
 
         g.setColor(Color.BLACK);
-        g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("gap = " + this.gap, 10, getHeight() - 80);
+        g.setFont(new Font("Arial", Font.BOLD, 26));
+        g.drawString("cur gap = " + this.gap, 10, getHeight() - 90);
 
         g.setColor(Color.WHITE);
         g.fillRect(getWidth()/2 - n*30 + this.i*60 + x, 35 + yxuong, 50, 50);
