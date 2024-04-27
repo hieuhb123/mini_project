@@ -14,22 +14,12 @@ public class Shell_Sort {
     public Shell_Sort(Menuview menuview, String src){
         int n = Integer.parseInt(src);
         Random rand = new Random();
-        this.a = new String[10];
-        // for(int i = 0; i < n ; i++){
-        //     int randInt = rand.nextInt(100);
-        //     String in = Integer.toString(randInt);
-        //     this.a[i] = in;
-        // }
-        this.a[0] = "73";
-        this.a[1] = "67";
-        this.a[2] = "56";
-        this.a[3] = "32";
-        this.a[4] = "52";
-        this.a[5] = "41";
-        this.a[6] = "83";
-        this.a[7] = "37";
-        this.a[8] = "32";
-        this.a[9] = "10";
+        this.a = new String[n];
+        for(int i = 0; i < n ; i++){
+            int randInt = rand.nextInt(100);
+            String in = Integer.toString(randInt);
+            this.a[i] = in;
+        }
         this.animation_shell = new Animation_shell(n, a);
         this.animation_shell.setBackground(Color.MAGENTA);
 
