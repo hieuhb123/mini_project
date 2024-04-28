@@ -85,6 +85,10 @@ public class Animation_shell extends JPanel implements ActionListener{
 
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 15));
+        g.drawString("\\/", getWidth()/2 - n*30 + 20 + this.i*60, 20);
+
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("Arial", Font.BOLD, 15));
         g.drawString(this.temp, getWidth()/2 - n*30 + 17 + this.i*60 + x, 67 + yxuong);
 
         if(this.len && i != j){
