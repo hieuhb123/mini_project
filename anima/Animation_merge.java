@@ -8,10 +8,6 @@ public class Animation_merge extends JPanel implements ActionListener{
     private Timer timer;
     private int n;
     private String a[];
-    private int x = 0;
-    private int y = 0;
-    private int dx = 2;
-    private int dy = 2;
     public Animation_merge(int n, String src[]) {
         a = new String[n];
         this.n = n;
@@ -24,27 +20,17 @@ public class Animation_merge extends JPanel implements ActionListener{
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Draw your animation frames here
-        g.setColor(Color.RED);
-        g.fillRect(x, y, 50, 50); // Example: Draw a red rectangle
+        split(g, a, 0, n-1, 0, 3);
     }
 
     public void actionPerformed(ActionEvent e) {
-        x += dx;
-        if (x > getWidth() - 50 || x < 0) {
-            dx *= -1;
-        }
-        y += dy;
-        if (y > getHeight() - 50 || y < 0) {
-            dy *= -1;
-        }
         repaint();
     }
 
 
-    private void merge(int arr[], int l, int m, int r)
+    private void merge(String arr[], int l, int m, int r)
     {
-        int tempL[] = new int[m-l+1], tempR[] = new int[r-m];
+        String tempL[] = new String[m-l+1], tempR[] = new String[r-m];
         for(int i = 0; i < m-l+1; i++){
                 tempL[i] = arr[l + i];
         }
@@ -60,7 +46,7 @@ public class Animation_merge extends JPanel implements ActionListener{
                 check = true;
                 break;
             }
-            if(tempL[i] > tempR[j]){
+            if(Integer.parseInt(tempL[i]) > Integer.parseInt(tempR[j])){
                 arr[d] = tempR[j];
                 j++;
                 d++;
@@ -86,13 +72,31 @@ public class Animation_merge extends JPanel implements ActionListener{
             }
         }
     }
-    private void mergeSort(int arr[], int l, int r)
+    private void split(Graphics g, String arr[], int l, int r, int s, int e)
     {
-        int n = l - r + 1;
+        if(l - r == 0) return;
         int m = (l+r)/2;
-        if(n == 1) return;
-        mergeSort(arr, l, m);
-        mergeSort(arr, m+1, r);
-        merge(arr, l, m, r);
+
+        for(int ii = l; ii <= m ; ii++){
+            g.setColor(Color.WHITE);
+            g.fillRect(getWidth()/2 - n*30 + ii*60, 35 + s*80, 50, 50);
+
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Arial", Font.BOLD, 15));
+            g.drawString(arr[ii], getWidth()/2 - n*30 + 17 + ii*60, 67 + s*80);
+        }
+
+
+        for(int ii = m + 1; ii <= r ; ii++){
+            g.setColor(Color.WHITE);
+            g.fillRect(getWidth()/2 - n*30 + ii*60 + 30, 35 + s*80, 50, 50);
+
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Arial", Font.BOLD, 15));
+            g.drawString(arr[ii], getWidth()/2 - n*30 + 17 + ii*60 + 30, 67 + s*80);
+        }
+
+        split(g, arr, l, m, s+1, e);
+        split(g, arr, m+1, r, s+1, e);
     }
 }
