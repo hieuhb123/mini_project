@@ -1,6 +1,5 @@
 package view;
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.FlowLayout;
 
@@ -14,7 +13,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-import anima.*;
 import controll.*;
 
 public class Menuview extends JFrame{
