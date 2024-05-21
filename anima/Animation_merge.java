@@ -20,7 +20,7 @@ public class Animation_merge extends JPanel implements ActionListener{
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        split(g, a, 0, n-1, 0, 3);
+        split(g, a, 0, n-1, 0, 3, 0, 0);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -72,31 +72,37 @@ public class Animation_merge extends JPanel implements ActionListener{
             }
         }
     }
-    private void split(Graphics g, String arr[], int l, int r, int s, int e)
+    private void split(Graphics g, String arr[], int l, int r, int s, int e, int stepL, int stepR)
     {
         if(l - r == 0) return;
         int m = (l+r)/2;
-
+        int kco = 60;
+        int kc = 10;
+        int kcstepL = 20;
+        int kcstepR = 40;  
         for(int ii = l; ii <= m ; ii++){
             g.setColor(Color.WHITE);
-            g.fillRect(getWidth()/2 - n*30 + ii*60, 35 + s*80, 50, 50);
+            g.fillRect(getWidth()/2 - n*30 + ii*kco + stepL*kcstepL + stepR*kcstepR, 35 + s*80, 45, 45);
 
             g.setColor(Color.BLACK);
             g.setFont(new Font("Arial", Font.BOLD, 15));
-            g.drawString(arr[ii], getWidth()/2 - n*30 + 17 + ii*60, 67 + s*80);
+            g.drawString(arr[ii], getWidth()/2 - n*30 + 17 + ii*kco + stepL*kcstepL + stepR*kcstepR, 67 + s*80);
         }
 
+        g.setColor(Color.GRAY);
+        g.fillRect(getWidth()/2 - n*30 + (m+1)*kco  + stepL*kcstepL + stepR*kcstepR - 5 , s*80 + 27, 5, 60);
 
         for(int ii = m + 1; ii <= r ; ii++){
             g.setColor(Color.WHITE);
-            g.fillRect(getWidth()/2 - n*30 + ii*60 + 30, 35 + s*80, 50, 50);
+            g.fillRect(getWidth()/2 - n*30 + ii*kco + kc + stepL*kcstepL + stepR*kcstepR, 35 + s*80, 45, 45);
 
             g.setColor(Color.BLACK);
             g.setFont(new Font("Arial", Font.BOLD, 15));
-            g.drawString(arr[ii], getWidth()/2 - n*30 + 17 + ii*60 + 30, 67 + s*80);
+            g.drawString(arr[ii], getWidth()/2 - n*30 + 17 + ii*kco + kc + stepL*kcstepL + stepR*kcstepR, 67 + s*80);
         }
-
-        split(g, arr, l, m, s+1, e);
-        split(g, arr, m+1, r, s+1, e);
+        stepL = stepL - 1;
+        split(g, arr, l, m, s+1, e, stepL, stepR);
+        stepR = stepR + 1;
+        split(g, arr, m+1, r, s+1, e, stepL,stepR);
     }
 }

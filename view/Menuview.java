@@ -31,16 +31,20 @@ public class Menuview extends JFrame{
         JMenuBar jMenuBar = new JMenuBar();
 //start_set_icon
         ImageIcon webIcon = new ImageIcon("image/my_wife.jpg");
+
         ImageIcon usageIcon = new ImageIcon("image/usage.png");
         ImageIcon aimsIcon = new ImageIcon("image/aims.png");
         ImageIcon quitIcon = new ImageIcon("image/quit.png");
+        
+        ImageIcon TurtleIcon = new ImageIcon("image/Turtle.png");
+        ImageIcon RabbitIcon = new ImageIcon("image/Rabbit.png");
 //end_set_icon
 
 //start_sort type
         JMenu jMenu_type = new JMenu("Sort Type");
-        JMenuItem jMenuItemHelp_merge = new JMenuItem("Merge Sort", usageIcon);
-        JMenuItem jMenuItemHelp_selec = new JMenuItem("Selection Sort", aimsIcon);
-        JMenuItem jMenuItemHelp_shell = new JMenuItem("Shell Sort", aimsIcon);
+        JMenuItem jMenuItemHelp_merge = new JMenuItem("Merge Sort", RabbitIcon);
+        JMenuItem jMenuItemHelp_selec = new JMenuItem("Selection Sort", TurtleIcon);
+        JMenuItem jMenuItemHelp_shell = new JMenuItem("Shell Sort", TurtleIcon);
         jMenu_type.add(jMenuItemHelp_merge);
         jMenuItemHelp_merge.addActionListener(controll);
         jMenu_type.addSeparator();

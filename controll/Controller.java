@@ -40,7 +40,7 @@ public class Controller implements ActionListener{
                         "Quit Confirmation",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE,
-                        new ImageIcon("warning.png")
+                        new ImageIcon("image/warning.png")
                 );
                 if (response == JOptionPane.YES_OPTION) {
                     System.exit(0);
