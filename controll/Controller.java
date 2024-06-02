@@ -79,14 +79,14 @@ public class Controller implements ActionListener{
             break;
             case "continue":
                 if(this.selection_Sort != null){
-                    this.selection_Sort.settime(30, this.selection_Sort.animation_selec);
+                    this.selection_Sort.settime(5, this.selection_Sort.animation_selec);
                     System.out.println("continue");
                 }
                 if(this.merge_Sort != null){
                     new Merge_Sort(menuview, this.menuview.boxn.getText());
                 }
                 if(this.shell_Sort != null){
-                    this.shell_Sort.settime(20, this.shell_Sort.animation_shell);
+                    this.shell_Sort.settime(5, this.shell_Sort.animation_shell);
                     System.out.println("continue");
                 }
             break;

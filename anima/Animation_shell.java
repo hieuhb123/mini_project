@@ -38,7 +38,7 @@ public class Animation_shell extends JPanel implements ActionListener{
         this.i = gap;
         this.temp = a[this.i];
         this.j = i;
-        this.timer = new Timer(20, this);
+        this.timer = new Timer(5, this);
         this.timer.start();
     }
 

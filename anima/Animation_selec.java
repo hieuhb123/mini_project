@@ -29,7 +29,7 @@ public class Animation_selec extends JPanel implements ActionListener{
         this.n = n;
         for(int i = 0; i < n ; i++)
             this.a[i] = src[i];
-        this.timer = new Timer(30, this);
+        this.timer = new Timer(5, this);
         this.timer.start();
     }
     public void settimeanima(int n){
